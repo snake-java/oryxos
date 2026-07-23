@@ -116,8 +116,8 @@ java -jar oryxos-boot/target/oryxos-boot-*.jar chat
 
 ## 🌐 官网
 
-- 文档：https://oryxos.robustmq.com/
-- GitHub：https://github.com/oryx-labs/oryxos
+- 文档：https://oryxos.snake-java.com/
+- GitHub：https://github.com/snake-java/oryxos
 
 ---
 
