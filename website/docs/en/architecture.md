@@ -9,4 +9,4 @@ OryxOS uses a four-layer architecture:
 3. **Capability Layer** - Provider, Memory, Tool, Notify, Sandbox
 4. **Foundation Layer** - Profile, Context, Session, Config, Storage, AgentLoader
 
-![Architecture](../images/architecture.svg)
+![Architecture](/images/architecture.svg)

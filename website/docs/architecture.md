@@ -9,4 +9,4 @@ OryxOS 采用四层架构设计：
 3. **能力层** - Provider、Memory、Tool、Notify、Sandbox
 4. **基础层** - Profile、Context、Session、Config、Storage、AgentLoader
 
-![架构图](../images/architecture.svg)
+![架构图](/images/architecture.svg)
