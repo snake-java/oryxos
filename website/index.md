@@ -3,18 +3,18 @@ layout: home
 
 hero:
   name: OryxOS
-  text: Enterprise Agent OS
+  text: 企业级 Agent OS
   tagline: Java 21 · Spring Boot 3.x · 自实现 ReAct Loop
   image:
     src: /images/logo.svg
     alt: OryxOS
   actions:
     - theme: brand
-      text: Quick Start
+      text: 快速开始
       link: /docs/quickstart
     - theme: alt
-      text: View on GitHub
-      link: https://github.com/oryx-labs/oryxos
+      text: GitHub
+      link: https://github.com/snake-java/oryxos
 
 features:
   - icon: 🧠

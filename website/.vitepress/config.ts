@@ -10,7 +10,7 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: 'Docs', link: '/docs/' },
       { text: 'Guide', link: '/guide/' },
-      { text: 'GitHub', link: 'https://github.com/oryx-labs/oryxos' }
+      { text: 'GitHub', link: 'https://github.com/snake-java/oryxos' }
     ],
     sidebar: [
       {
