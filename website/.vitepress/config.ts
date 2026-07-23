@@ -7,27 +7,26 @@ export default defineConfig({
   themeConfig: {
     logo: '/images/logo.svg',
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Docs', link: '/docs/' },
-      { text: 'Guide', link: '/guide/' },
+      { text: '中文', link: '/zh/' },
+      { text: 'English', link: '/' },
       { text: 'GitHub', link: 'https://github.com/snake-java/oryxos' }
     ],
     sidebar: [
       {
         text: 'Getting Started',
         items: [
-          { text: 'Introduction', link: '/docs/' },
-          { text: 'Quick Start', link: '/docs/quickstart' },
-          { text: 'Architecture', link: '/docs/architecture' }
+          { text: 'Introduction', link: '/' },
+          { text: 'Quick Start', link: '/docs/en/quickstart' },
+          { text: 'Architecture', link: '/docs/en/architecture' }
         ]
       },
       {
         text: 'Core Concepts',
         items: [
-          { text: 'Agent', link: '/docs/concepts/agent' },
-          { text: 'Provider', link: '/docs/concepts/provider' },
-          { text: 'Memory', link: '/docs/concepts/memory' },
-          { text: 'Tool', link: '/docs/concepts/tool' }
+          { text: 'Agent', link: '/docs/en/concepts/agent' },
+          { text: 'Provider', link: '/docs/en/concepts/provider' },
+          { text: 'Memory', link: '/docs/en/concepts/memory' },
+          { text: 'Tool', link: '/docs/en/concepts/tool' }
         ]
       }
     ],
