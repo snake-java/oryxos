@@ -1,0 +1,25 @@
+# OryxOS Configuration Example
+# Copy to application.yml and fill in your API keys
+
+spring:
+  application:
+    name: oryxos
+
+server:
+  port: 8080
+
+# OryxOS Workspace
+oryxos:
+  workspace: .oryxos
+  data-dir: .oryxos
+
+# LLM Providers - Set via environment variables
+# export DEEPSEEK_API_KEY=your_key_here
+# export OPENAI_API_KEY=your_key_here
+
+# Logging
+logging:
+  level:
+    com.oryxos: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
