@@ -11,7 +11,7 @@ hero:
   actions:
     - theme: brand
       text: 快速开始
-      link: /docs/zh/quickstart
+      link: /zh/quickstart
     - theme: alt
       text: GitHub
       link: https://github.com/snake-java/oryxos
