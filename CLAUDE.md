@@ -341,3 +341,9 @@ schedules:
 ---
 
 *本文档由 AI 辅助生成，所有 AI 开发任务必须遵循本文档定义的技术栈、模块结构、不可违背原则和数据模型。*
+
+<!-- SPECKIT START -->
+For additional context about technologies to be used, project structure,
+shell commands, and other important information, read the current plan:
+specs/001-oryxos-full-spec/plan.md
+<!-- SPECKIT END -->
