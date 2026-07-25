@@ -21,13 +21,11 @@
             <artifactId>oryxos-core</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <!-- TEMPORARILY DISABLED: oryxos-provider blocked by Spring AI dependency
         <dependency>
             <groupId>com.oryxos</groupId>
             <artifactId>oryxos-provider</artifactId>
             <version>${project.version}</version>
         </dependency>
-        -->
         <dependency>
             <groupId>com.oryxos</groupId>
             <artifactId>oryxos-memory</artifactId>
@@ -70,7 +68,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.oryxos.boot.OryxBootApplication</mainClass>
+                    <mainClass>com.oryxos.boot.OryxOSApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>
