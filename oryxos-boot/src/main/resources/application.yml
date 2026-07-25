@@ -4,6 +4,28 @@ spring:
   profiles:
     active: default
 
+  # SQLite DataSource
+  datasource:
+    url: jdbc:sqlite:${ORYXOS_DATA_DIR:./.oryxos}/oryxos.db
+    driver-class-name: org.sqlite.JDBC
+    hikari:
+      maximum-pool-size: 1
+
+  jpa:
+    database-platform: org.hibernate.community.dialect.SQLiteDialect
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  # SQL initialization
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema.sql
+
 server:
   port: 8080
 
@@ -12,21 +34,33 @@ oryxos:
   workspace: ${ORYXOS_WORKSPACE:.oryxos}
   data-dir: ${ORYXOS_DATA_DIR:.oryxos}
 
-# LLM Providers - Configure your API keys via environment variables
+# LLM Providers - Configure API keys via environment variables
 spring:
   ai:
     openai:
       api-key: ${OPENAI_API_KEY:}
-
-# DeepSeek Provider
-spring:
-  ai:
     deepseek:
       api-key: ${DEEPSEEK_API_KEY:}
 
-# Logging
+# Logging (JSON format via logback-spring.xml)
 logging:
   level:
-    com.oryxos: DEBUG
+    com.oryxos: INFO
   pattern:
-    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%X{traceId}] [%thread] %-5level %logger{36} - %msg%n"
+
+# Actuator & Observability
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus,metrics
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+    tags:
+      application: ${spring.application.name}
