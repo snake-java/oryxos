@@ -43,10 +43,13 @@ public class Session {
     // Getters
     public String getSessionId() { return sessionId; }
     public String getProfileName() { return profileName; }
+    public Profile getProfile() { return null; } // TODO: load profile from ProfileManager
     public String getChannel() { return channel; }
     public String getUserId() { return userId; }
     public List<Message> getMessages() { return List.copyOf(messages); }
-    public SessionStatus getStatus() { return status; }
+    public String getMessagesJson() { return "[]"; } // TODO: serialize messages
+    public String getStatus() { return status.name().toLowerCase(); }
+    public SessionStatus getStatusEnum() { return status; }
     public Instant getCreatedAt() { return createdAt; }
     public Instant getLastActiveAt() { return lastActiveAt; }
     public Instant getArchivedAt() { return archivedAt; }

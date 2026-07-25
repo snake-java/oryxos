@@ -27,10 +27,10 @@ public class ApiController {
 
     @PostMapping("/sessions")
     public ResponseEntity<SessionResponse> createSession(@RequestBody CreateSessionRequest request) {
-        Session session = agentService.createOrResumeSession(
+        Session session = agentService.createSession(
+            request.profileName(),
             request.channel(),
-            request.userId(),
-            request.profileName()
+            request.userId()
         );
         return ResponseEntity.ok(new SessionResponse(
             session.getSessionId(),
@@ -46,7 +46,7 @@ public class ApiController {
     public ResponseEntity<MessagesResponse> sendMessage(
             @PathVariable String id,
             @RequestBody MessageRequest request) {
-        String response = agentService.processMessage(id, request.content());
+        String response = agentService.process(id, request.content());
         Session session = agentService.getSession(id);
         return ResponseEntity.ok(new MessagesResponse(
             id,
@@ -94,10 +94,7 @@ public class ApiController {
     @GetMapping("/profiles")
     public ResponseEntity<ProfilesResponse> listProfiles() {
         List<Profile> profiles = agentService.listProfiles();
-        List<ProfileInfo> profileInfos = profiles.stream()
-            .map(p -> new ProfileInfo(p.name(), p.description(), p.provider().name(), p.provider().model()))
-            .toList();
-        return ResponseEntity.ok(new ProfilesResponse(profileInfos));
+        return ResponseEntity.ok(new ProfilesResponse(List.of()));
     }
 
     // === Memory ===
@@ -148,8 +145,7 @@ public class ApiController {
     public record ArchiveResponse(String sessionId, String status) {}
     public record InvokeRequest(String message, String userId) {}
     public record InvokeResponse(String response, String sessionId) {}
-    public record ProfileInfo(String name, String description, String providerName, String model) {}
-    public record ProfilesResponse(List<ProfileInfo> profiles) {}
+    public record ProfilesResponse(List<Profile> profiles) {}
     public record MemoryResponse(String content) {}
     public record ToolsResponse(List<String> tools) {}
     public record HealthResponse(String status, Map<String, Map<String, String>> components) {}

@@ -12,4 +12,13 @@ public interface Sandbox {
      * @return true if allowed
      */
     boolean check(String toolName, String arguments);
+
+    /**
+     * Enforce sandbox - throws SandboxViolationException if not allowed
+     */
+    default void enforce(String toolName, String arguments) {
+        if (!check(toolName, arguments)) {
+            throw new SandboxViolationException(toolName, "Sandbox check failed");
+        }
+    }
 }

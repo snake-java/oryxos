@@ -31,12 +31,8 @@ public class CliChannel {
         System.out.println("Type 'exit' or 'quit' to end the conversation.");
         System.out.println();
 
-        // Create or resume session
-        Session session = agentService.createOrResumeSession(
-            "cli",
-            "cli-user",
-            profile.name()
-        );
+        // Create session
+        Session session = agentService.createSession(profile.name(), "cli", "cli-user");
 
         System.out.println("Session: " + session.getSessionId());
         System.out.println();
@@ -57,7 +53,7 @@ public class CliChannel {
 
             // Process message
             try {
-                String response = agentService.processMessage(session.getSessionId(), input);
+                String response = agentService.process(session.getSessionId(), input);
                 System.out.println("Agent: " + response);
                 System.out.println();
             } catch (Exception e) {
@@ -70,11 +66,7 @@ public class CliChannel {
      * Send single message and return response (non-interactive).
      */
     public String sendMessage(String message) {
-        Session session = agentService.createOrResumeSession(
-            "cli",
-            "cli-user",
-            profile.name()
-        );
-        return agentService.processMessage(session.getSessionId(), message);
+        Session session = agentService.createSession(profile.name(), "cli", "cli-user");
+        return agentService.process(session.getSessionId(), message);
     }
 }
