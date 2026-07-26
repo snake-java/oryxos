@@ -71,6 +71,7 @@ OryxOS 是基于 **Java 21 + Spring Boot 3.x** 的企业级 Agent OS，作为统
 | **C8** | 敏感配置只走环境变量 | API key/token 不得明文写入 YAML/代码/提交记录 |
 | **C9** | 一个目录 = 一个 Agent | Agent 定义在 `.oryxos/agents/<name>/` 目录，派生 Profile |
 | **C10** | Memory 三层统一门面 | `MemoryService` 统一收口会话记忆 + 长期记忆，不分别访问 |
+| **C11** | 编译通过才能提交 | 提交前必须确保 `mvn compile` 成功，CI 会验证编译状态 |
 
 ---
 
